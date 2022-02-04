@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -47,7 +43,7 @@ public class CameraMovement : MonoBehaviour
             var ownPosition = new Vector2(transform.position.x, transform.position.y);
             var position = followedObject.position;
             var playerPosition = new Vector2(position.x, position.y);
-            var smoothedPosition = Vector2.Lerp(transform.position, playerPosition, parallaxSpeedSlow);
+            var smoothedPosition = Vector2.Lerp(ownPosition, playerPosition, parallaxSpeedSlow);
             
             // Check if player is too far for min speed.
             if (Vector2.Distance(smoothedPosition, playerPosition) > parallaxDistance)
